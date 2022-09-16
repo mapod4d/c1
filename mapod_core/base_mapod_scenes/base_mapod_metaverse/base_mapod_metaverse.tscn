@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://mapod_core/mapod_scenes/mapod_planet_scene/mapod_planet_scene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_metaverse/base_mapod_metaverse_terrain.gd" type="Script" id=2]
+[ext_resource path="res://mapod_assets/world_envs/mapod_aces_fitted.tres" type="Environment" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 2, 0.5, 2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.176471, 0.176471, 0.117647, 0.596078 )
+metallic = 0.46
+roughness = 0.18
+refraction_enabled = true
+refraction_scale = 0.0
+refraction_texture_channel = 0
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 0.25, 1, 1, 0.25, 1, -1, -0.25, 1, 1, 0.25, 1, 1, -0.25, 1, -1, -0.25, 1, 1, 0.25, -1, -1, 0.25, -1, 1, -0.25, -1, -1, 0.25, -1, -1, -0.25, -1, 1, -0.25, -1, 1, 0.25, 1, 1, 0.25, -1, 1, -0.25, 1, 1, 0.25, -1, 1, -0.25, -1, 1, -0.25, 1, -1, 0.25, -1, -1, 0.25, 1, -1, -0.25, -1, -1, 0.25, 1, -1, -0.25, 1, -1, -0.25, -1, 1, 0.25, 1, -1, 0.25, 1, 1, 0.25, -1, -1, 0.25, 1, -1, 0.25, -1, 1, 0.25, -1, -1, -0.25, 1, 1, -0.25, 1, -1, -0.25, -1, 1, -0.25, 1, 1, -0.25, -1, -1, -0.25, -1 )
+
+[node name="BaseMapodMetaverse" instance=ExtResource( 1 )]
+visitor_position = Vector3( -5, 1, -10 )
+visitor_angle = Vector3( 0, -153, 0 )
+
+[node name="Terrain" parent="." index="0"]
+script = ExtResource( 2 )
+
+[node name="Table" type="MeshInstance" parent="Terrain/Buildings" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terrain/Buildings/Table" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terrain/Buildings/Table/StaticBody" index="0"]
+shape = SubResource( 3 )
+
+[node name="WorldEnvironment" parent="." index="1"]
+environment = ExtResource( 3 )

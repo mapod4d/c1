@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mapod_assets/themes/mapod_theme.tres" type="Theme" id=1]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_core/utils/progress/progress.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_core/base_mapod_core.gd" type="Script" id=3]
+
+[node name="BaseMapodCore" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Utils" type="Node" parent="."]
+
+[node name="Progress" parent="Utils" instance=ExtResource( 2 )]
+visible = false
+theme = ExtResource( 1 )
+
+[node name="LoadedScene" type="Node" parent="."]

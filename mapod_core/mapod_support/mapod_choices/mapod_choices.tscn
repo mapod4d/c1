@@ -1,0 +1,158 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://mapod_assets/fonts/cmu_concrete/cmunorm.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://mapod_core/mapod_support/mapod_choices/mapod_choices.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="MapodChoices" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+extended = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 510.0
+margin_top = 190.0
+margin_right = 1410.0
+margin_bottom = 890.0
+rect_min_size = Vector2( 900, 700 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 893.0
+margin_bottom = 693.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 876.0
+margin_bottom = 686.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 866.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+text = "OPZIONI INTERNE"
+align = 1
+
+[node name="ToMetaverse" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 51.0
+margin_right = 866.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "Vai al metaverso"
+
+[node name="Back" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 866.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 3 )
+text = "Esci da questo menù"
+
+[node name="Exit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 141.0
+margin_right = 866.0
+margin_bottom = 182.0
+custom_fonts/font = SubResource( 4 )
+text = "Esci dal multiverso - Torna al sistema operativo"
+
+[node name="LoadPanorama" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 186.0
+margin_right = 866.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 5 )
+text = "Carica un panorama"
+
+[node name="Dialogs" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="Dialogs"]
+margin_left = 860.0
+margin_top = 505.0
+margin_right = 1060.0
+margin_bottom = 575.0
+window_title = "Confermare"
+
+[node name="FileDialog" type="FileDialog" parent="Dialogs"]
+margin_left = 831.0
+margin_top = 390.0
+margin_right = 1088.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 200, 300 )
+window_title = "Open a File"
+dialog_hide_on_ok = true
+mode = 0
+access = 2
+current_dir = "/area_lavoro/godot/projects/mapod/00_main/mapod_template"
+current_path = "/area_lavoro/godot/projects/mapod/00_main/mapod_template/"
+
+[node name="MessageDialog" type="AcceptDialog" parent="Dialogs"]
+margin_left = 860.0
+margin_top = 440.0
+margin_right = 1060.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 200, 200 )
+window_title = "Informazione"

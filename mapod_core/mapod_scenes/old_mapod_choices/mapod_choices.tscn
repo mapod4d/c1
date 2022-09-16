@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://mapod_core/mapod_scenes/mapod_dialog_confirm/mapod_dialog_confirm.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mapod_core/mapod_scenes/old_mapod_choices/mapod_choices.gd" type="Script" id=2]
+[ext_resource path="res://mapod_assets/fonts/cmu_concrete/cmunorm.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 1
+font_data = ExtResource( 3 )
+
+[node name="OLDChoices" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 510.0
+margin_top = 190.0
+margin_right = 1410.0
+margin_bottom = 890.0
+rect_min_size = Vector2( 900, 700 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 893.0
+margin_bottom = 693.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 876.0
+margin_bottom = 686.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 866.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+text = "OPZIONI INTERNE"
+align = 1
+
+[node name="ToMetaverse" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 51.0
+margin_right = 866.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "Vai al metaverso"
+
+[node name="Back" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 866.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 3 )
+text = "Esci da questo menù"
+
+[node name="Exit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 141.0
+margin_right = 866.0
+margin_bottom = 182.0
+custom_fonts/font = SubResource( 4 )
+text = "Esci dal multiverso - Torna al sistema operativo"
+
+[node name="ConfirmToMetaverse" parent="." instance=ExtResource( 1 )]
+margin_left = 94.0
+margin_top = 16.0
+margin_right = 265.0
+margin_bottom = 116.0
+message_text = "Vuoi andare al
+metaverso ? "
+
+[node name="ConfirmExit" parent="." instance=ExtResource( 1 )]
+message_text = "Vuoi uscire dal
+multiverso ? "

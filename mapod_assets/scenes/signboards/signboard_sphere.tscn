@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mapod_assets/shaders/flash_two_color.gdshader" type="Shader" id=1]
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/first_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+shader_param/second_color = Color( 1, 1, 0, 1 )
+shader_param/frequency_multiplier = 4.0
+
+[node name="SignboardSphere" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )

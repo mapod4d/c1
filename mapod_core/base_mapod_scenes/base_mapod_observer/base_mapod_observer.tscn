@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/mapod_2d_state_machine.gd" type="Script" id=1]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/states/open_2d_state.gd" type="Script" id=2]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/states/move_2d_state.gd" type="Script" id=3]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/states/quiet_2d_state.gd" type="Script" id=4]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/hubnl/hudnl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/base_mapod_observer.gd" type="Script" id=6]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/hubnl/hudnl.gd" type="Script" id=7]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_observer/states/choices_2d_state.gd" type="Script" id=8]
+[ext_resource path="res://mapod_core/mapod_support/mapod_choices/mapod_choices.tscn" type="PackedScene" id=10]
+
+[node name="BaseMapodObserver" type="Camera2D"]
+current = true
+script = ExtResource( 6 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 0 )
+collide_with_areas = true
+
+[node name="Mapod2DStateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+start_state = NodePath("Quiet2DState")
+
+[node name="Quiet2DState" type="Node" parent="Mapod2DStateMachine"]
+script = ExtResource( 4 )
+
+[node name="Move2DState" type="Node" parent="Mapod2DStateMachine"]
+script = ExtResource( 3 )
+
+[node name="Open2DState" type="Node" parent="Mapod2DStateMachine"]
+script = ExtResource( 2 )
+
+[node name="Choices2DState" type="Node" parent="Mapod2DStateMachine"]
+script = ExtResource( 8 )
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Hudnl" parent="Hud" instance=ExtResource( 5 )]
+script = ExtResource( 7 )
+
+[node name="ChoicesLayer" type="CanvasLayer" parent="."]
+
+[node name="Choices" parent="ChoicesLayer" instance=ExtResource( 10 )]
+visible = false

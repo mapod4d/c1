@@ -1,0 +1,447 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://mapod_assets/themes/mapod_theme.tres" type="Theme" id=1]
+[ext_resource path="res://mapod_assets/fonts/cmu_concrete/cmunorm.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://mapod_assets/images/banner.png" type="Texture" id=3]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/selections/options.gd" type="Script" id=4]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/selections/help.gd" type="Script" id=5]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/selections/multi_player.gd" type="Script" id=6]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/selections/single_player.gd" type="Script" id=7]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/base_mapod_main_menu.gd" type="Script" id=8]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/selections/exit.gd" type="Script" id=9]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/menu_selector.gd" type="Script" id=10]
+[ext_resource path="res://mapod_assets/images/ico_trasparente.png" type="Texture" id=11]
+[ext_resource path="res://mapod_assets/icons/keyboard/s_white_medium.png" type="Texture" id=12]
+[ext_resource path="res://mapod_assets/icons/xbox_360/xb360_right_stick_medium.png" type="Texture" id=13]
+[ext_resource path="res://mapod_assets/icons/keyboard/arrow_up_white_medium.png" type="Texture" id=14]
+[ext_resource path="res://mapod_assets/icons/keyboard/arrow_down_white_medium.png" type="Texture" id=15]
+[ext_resource path="res://mapod_assets/icons/xbox_360/xb360_a_medium.png" type="Texture" id=16]
+[ext_resource path="res://mapod_assets/icons/keyboard/invio_white_medium.png" type="Texture" id=17]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0.396078 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 60
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 22
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 47
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=15]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.294118, 0.294118, 0.294118, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StreamTexture" id=11]
+flags = 4
+load_path = "res://.import/w_white_medium.png-4f65b90f068173d3fb5d35ad7da2e32c.stex"
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.333333, 0.333333, 0.333333, 0 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StreamTexture" id=12]
+flags = 4
+load_path = "res://.import/xb360_right_stick_medium.png-19f9d059f79113c9cfe88e86b0e786de.stex"
+
+[sub_resource type="DynamicFont" id=14]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="BaseMapodMainMenu" type="Node"]
+script = ExtResource( 8 )
+sub_title_text = "TEST"
+label_style_nomouse = SubResource( 7 )
+label_style_mouse = SubResource( 8 )
+
+[node name="Debouncer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 1 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 1 )
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1910.0
+margin_bottom = 1070.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HBoxContainer"]
+margin_right = 946.0
+margin_bottom = 1060.0
+mouse_filter = 1
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_constants/margin_top = 200
+
+[node name="LeftBox" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer"]
+margin_top = 200.0
+margin_right = 946.0
+margin_bottom = 1060.0
+rect_pivot_offset = Vector2( -4, -7 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox"]
+margin_right = 946.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+alignment = 2
+
+[node name="Title" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Header"]
+margin_right = 946.0
+margin_bottom = 78.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Metaverse MAPOD4D"
+align = 1
+
+[node name="Slogan" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Header"]
+margin_top = 82.0
+margin_right = 946.0
+margin_bottom = 111.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Choose FLOSS, use other only if you have no choice."
+align = 1
+
+[node name="SubTitle" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Header"]
+margin_top = 115.0
+margin_right = 946.0
+margin_bottom = 176.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Set subtitle property !!"
+align = 1
+
+[node name="Menu" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox"]
+margin_left = 283.0
+margin_top = 180.0
+margin_right = 663.0
+margin_bottom = 771.0
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
+modulate = Color( 1, 1, 1, 0.509804 )
+margin_top = 180.0
+margin_right = 380.0
+margin_bottom = 222.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
+text = "HELP E INFORMAZIONI"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active = false
+
+[node name="SinglePlayer" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
+margin_top = 226.0
+margin_right = 380.0
+margin_bottom = 268.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
+text = "SINGOLO VISITATORE"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MultiPlayer" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
+modulate = Color( 1, 1, 1, 0.509804 )
+margin_top = 272.0
+margin_right = 380.0
+margin_bottom = 314.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
+text = "MULTI VISITATORE"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active = false
+
+[node name="Options" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
+modulate = Color( 1, 1, 1, 0.509804 )
+margin_top = 318.0
+margin_right = 380.0
+margin_bottom = 360.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
+text = "OPZIONI"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active = false
+
+[node name="Exit" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
+margin_top = 364.0
+margin_right = 380.0
+margin_bottom = 411.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 4 )
+text = "ESCI"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+special = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox"]
+margin_top = 775.0
+margin_right = 946.0
+margin_bottom = 860.0
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer"]
+margin_left = 10.0
+margin_right = 946.0
+margin_bottom = 75.0
+
+[node name="VersionData" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer"]
+margin_right = 936.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 15 )
+text = "APP VER. ENGINE VER."
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer"]
+margin_top = 25.0
+margin_right = 936.0
+margin_bottom = 75.0
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer"]
+margin_right = 936.0
+margin_bottom = 50.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpInput" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_top = 9.0
+margin_right = 31.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "su"
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 31.0
+margin_right = 81.0
+margin_bottom = 50.0
+texture = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpArrow" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 81.0
+margin_right = 131.0
+margin_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Xb360rightStick0" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 131.0
+margin_right = 181.0
+margin_bottom = 50.0
+texture = ExtResource( 13 )
+
+[node name="Space0" type="Panel" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 181.0
+margin_right = 216.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 35, 0 )
+custom_styles/panel = SubResource( 13 )
+
+[node name="DownInput" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 216.0
+margin_top = 9.0
+margin_right = 261.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "giù"
+valign = 1
+uppercase = true
+
+[node name="S" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 261.0
+margin_right = 311.0
+margin_bottom = 50.0
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DownArrow" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 311.0
+margin_right = 361.0
+margin_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Xb360rightStick1" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 361.0
+margin_right = 411.0
+margin_bottom = 50.0
+texture = SubResource( 12 )
+
+[node name="Space1" type="Panel" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 411.0
+margin_right = 446.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 35, 0 )
+custom_styles/panel = SubResource( 13 )
+
+[node name="ConfirmInput" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 446.0
+margin_top = 9.0
+margin_right = 598.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+text = " conferma"
+valign = 1
+uppercase = true
+
+[node name="Confirm" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 598.0
+margin_right = 648.0
+margin_bottom = 50.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Xb360rightStick2" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 648.0
+margin_right = 698.0
+margin_bottom = 50.0
+texture = ExtResource( 16 )
+
+[node name="RightBox" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer"]
+margin_left = 950.0
+margin_right = 1900.0
+margin_bottom = 1060.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/HBoxContainer/RightBox"]
+margin_right = 950.0
+margin_bottom = 1060.0
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="MenuSelector" type="Sprite" parent="."]
+position = Vector2( 449.9, 503 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+script = ExtResource( 10 )

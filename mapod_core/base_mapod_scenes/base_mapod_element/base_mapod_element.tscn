@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://mapod_assets/fonts/cmu_concrete/cmunorm.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_element/base_mapod_element.gd" type="Script" id=2]
+[ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_element/mapod_element_sb.gd" type="Script" id=3]
+
+[sub_resource type="CylinderMesh" id=5]
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Model/Viewport")
+
+[node name="BaseMapodElement" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Model" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="Model"]
+size = Vector2( 400, 92 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="Model/Viewport"]
+margin_right = 400.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 250, 92 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "NO DESCRIPTION"
+align = 1
+valign = 1
+
+[node name="MapodElementSB" type="StaticBody" parent="Model"]
+script = ExtResource( 3 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.56143, 0 )
+flip_h = true
+flip_v = true
+texture = SubResource( 3 )

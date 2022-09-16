@@ -1,0 +1,45 @@
+[gd_resource type="TileSet" load_steps=7 format=2]
+
+[ext_resource path="res://mapod_assets/shaders/mapod_portal_2d.gdshader" type="Shader" id=1]
+[ext_resource path="res://mapod_assets/images_tile_set_2d/portal.png" type="Texture" id=2]
+[ext_resource path="res://mapod_assets/images/tex_swirl_0002_mk.jpg" type="Texture" id=3]
+[ext_resource path="res://mapod_assets/images_tile_set_2d/portal_background.png" type="Texture" id=4]
+[ext_resource path="res://mapod_assets/pbr_2k/walls/painted_plaster017_2k-png/painted_plaster017_2k_normalgl.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/baseColor = Color( 0.0352941, 0.0470588, 0.972549, 1 )
+shader_param/speed = 0.1
+shader_param/noiseMap = ExtResource( 3 )
+
+[resource]
+0/name = "PortalBackground"
+0/texture = ExtResource( 4 )
+0/normal_map = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 128, 128 )
+0/navigation_offset = Vector2( 128, 128 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Portal"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/material = SubResource( 1 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 128, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 64, 64 )
+1/navigation_offset = Vector2( 64, 64 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0

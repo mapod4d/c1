@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mapod_core/mapod_analyzable/mapod_analyzable_2d_portal/mapod_analyzable_2d_portal.gd" type="Script" id=1]
+[ext_resource path="res://mapod_core/mapod_analyzable/mapod_analyzable_2d_portal/portal_static_body_2d.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
+
+[node name="MapodAnlyzable2DPortal" type="MeshInstance2D"]
+scale = Vector2( 64, 64 )
+script = ExtResource( 1 )
+
+[node name="PortalStaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource( 2 )
+_mapod_can_be_opened = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalStaticBody2D"]
+shape = SubResource( 1 )

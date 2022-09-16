@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mapod_core/mapod_analyzable/mapod_analyzable_portal/portal_3d_shape.tres" type="Shape" id=1]
+[ext_resource path="res://mapod_core/mapod_analyzable/mapod_analyzable_portal/mapod_analyzable_portal.gd" type="Script" id=2]
+[ext_resource path="res://mapod_core/mapod_analyzable/mapod_analyzable_portal/portal_static_body.gd" type="Script" id=3]
+
+[node name="MapodAnalyzablePortal" type="MeshInstance"]
+script = ExtResource( 2 )
+
+[node name="PortalStaticBody" type="StaticBody" parent="."]
+script = ExtResource( 3 )
+_mapod_can_be_opened = true
+
+[node name="CollisionShape" type="CollisionShape" parent="PortalStaticBody"]
+shape = ExtResource( 1 )
