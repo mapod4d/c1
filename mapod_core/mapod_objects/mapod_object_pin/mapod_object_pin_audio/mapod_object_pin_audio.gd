@@ -1,10 +1,10 @@
 # tool
 
 # class_name
-class_name MapodObjectPin
+class_name MapodObjectPinAudio
 
 # extends
-extends BaseMapodObject
+extends MapodObjectPin
 
 # # docstring
 
@@ -16,6 +16,7 @@ extends BaseMapodObject
 # ----- constants
 
 # ----- exported variables
+export(AudioStream) var first_sound;
 
 # ----- public variables
 
@@ -34,5 +35,14 @@ func _ready():
 # ----- remaining built-in virtual methods
 
 # ----- public methods
+
+func do_first_interaction():
+	if first_sound != null:
+		$AudioStreamPlayer3D.stream = first_sound
+		$AudioStreamPlayer3D.play()
+
+func do_second_interaction():
+	if first_sound != null:
+		$AudioStreamPlayer3D.stop()
 
 # ----- private methods
