@@ -136,8 +136,10 @@ func _process(_delta):
 					hud.set_first_interaction_info(info['first_interaction_info'])
 					hud.set_second_interaction_info(info['second_interaction_info'])
 					_set_object_interaction(info['first_interaction'], info['second_interaction'])
+					hud.set_info_data(info['description'])
 					mapod_state_machine.static_states_data["first_interaction"] = info['first_interaction']
 					mapod_state_machine.static_states_data["second_interaction"] = info['second_interaction']
+					mapod_state_machine.static_states_data["description"] = info['description']
 					mapod_state_machine.static_states_data["object_unique_id"] = collider_object.get_unique_id()
 				elif collider_object is MapodStaticBodyAnalyzable:
 					# trovato un oggetto analizzabile

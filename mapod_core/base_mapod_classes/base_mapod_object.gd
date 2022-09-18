@@ -20,6 +20,8 @@ signal object_action_requested(unique_id, action, params)
 # ----- exported variables
 export(String) var mapod_o_name = 'nessun nome'
 
+export(String, MULTILINE) var mapod_o_description = ''
+
 export(bool) var mapod_o_first_interaction = false
 export(String) var mapod_o_first_interaction_info = 'Nessuna informazione'
 
@@ -49,6 +51,7 @@ func _ready():
 func informations():
 	var retVal = {
 		'name': mapod_o_name,
+		'description': mapod_o_description,
 		'first_interaction': mapod_o_first_interaction,
 		'first_interaction_info': mapod_o_first_interaction_info,
 		'second_interaction': mapod_o_second_interaction,
