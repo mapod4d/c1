@@ -26,7 +26,6 @@ mapod_o_first_interaction = true
 mapod_o_first_interaction_info = "per sollevare"
 mapod_o_second_interaction = true
 mapod_o_second_interaction_info = "per abbassare"
-target = null
 
 [node name="RiseUp" type="MeshInstance" parent="."]
 use_in_baked_light = true

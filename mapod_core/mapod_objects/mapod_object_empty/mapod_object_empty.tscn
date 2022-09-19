@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mapod_core/mapod_objects/mapod_object_empty/mapod_object_empty.gd" type="Script" id=1]
+
+[node name="MapodObjectEmpty" type="StaticBody"]
+script = ExtResource( 1 )
