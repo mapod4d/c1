@@ -42,6 +42,9 @@ var _unique_id = 0
 
 func _ready():
 	add_to_group("mapod_objects")
+	_collision_update()
+	connect("visibility_changed", self, "_on_visibility_chage")
+
 
 # ----- remaining built-in virtual methods
 
@@ -82,3 +85,12 @@ func do_second_interaction():
 func _object_action_request(unique_id: int, action: String, params):
 	emit_signal("object_action_requested", unique_id, action, params)
 
+
+func _on_visibility_chage():
+	_collision_update()
+
+
+func _collision_update():
+	for child_node in self.get_children():
+		if child_node is CollisionShape:
+			child_node.disabled = !visible
