@@ -14,7 +14,7 @@ extends Resource
 export(String) var mapod_app_version = "1.0.0.0-a"
 
 # ----- public variables
-var mapod_engine_version = "1.2.1.0"
+var mapod_engine_version = "1.3.0.0"
 
 # ----- private variables
 
