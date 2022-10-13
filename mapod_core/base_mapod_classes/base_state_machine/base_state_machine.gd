@@ -98,7 +98,9 @@ func _physics_process(delta):
 		"mapod_look_right",
 		"mapod_look_left",
 		"mapod_look_up",
-		"mapod_look_down"
+		"mapod_look_down",
+		"mapod_zoom_in",
+		"mapod_zoom_out"
 	]:
 		if Input.is_action_pressed(action):
 			var event = InputEventAction.new()

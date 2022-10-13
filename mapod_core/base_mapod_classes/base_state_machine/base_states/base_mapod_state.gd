@@ -78,6 +78,7 @@ func handle_input(event):
 	if event.is_action_pressed("mapod_full_win"):
 		OS.set_window_fullscreen(!OS.window_fullscreen)
 
+	## zoom and capture
 	if event is InputEventMouseButton:
 		# capture mouse when visible if hud is hidden
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
@@ -88,6 +89,10 @@ func handle_input(event):
 		elif event.button_index == BUTTON_WHEEL_DOWN and event.pressed:
 			print("Wheel down")
 			input_zoom = -1
+	if event.is_action_pressed("mapod_zoom_in"):
+		input_zoom = 1
+	elif event.is_action_pressed("mapod_zoom_out"):
+		input_zoom = -1
 	
 	# open object analysable
 	input_open = false
@@ -113,7 +118,7 @@ func handle_input(event):
 			input_rotation_vector.x = event.relative.x * mouse_sensitivity
 			input_rotation_vector.y = event.relative.y * mouse_sensitivity
 	
-	# gamepad rotation
+	# gamepad and arrows key rotation
 	if event.is_action_pressed("mapod_look_right"):
 		input_rotation_vector.x = local_static_states_data["game_pad_sensitivity"]
 	if event.is_action_pressed("mapod_look_left"):
@@ -140,6 +145,7 @@ func handle_input(event):
 			Input.get_axis("mapod_move_backward", "mapod_move_forward")
 		)
 		input_movement_vector = input_movement_vector.normalized()
+
 
 
 func update(delta):
