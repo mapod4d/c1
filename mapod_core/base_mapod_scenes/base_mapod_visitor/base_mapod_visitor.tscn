@@ -151,7 +151,7 @@ depth_texture = ExtResource( 20 )
 
 [node name="BaseMapodVisitor" type="KinematicBody"]
 script = ExtResource( 24 )
-game_pad_sensitivity = 0.9
+game_pad_sensitivity = 2.0
 
 [node name="MapodStateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
