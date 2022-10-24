@@ -25,12 +25,11 @@ var selected = 0
 
 func _input(event):
 	var current_selected = selected
-	if event.is_action_pressed("mapod_move_forward"):
+	if event.is_action_pressed("mapod_menu_up"):
 		current_selected -= 1
-	if event.is_action_pressed("mapod_move_backward"):
+	if event.is_action_pressed("mapod_menu_down"):
 		current_selected += 1
 	set_selection(current_selected)
-
 
 # ----- public methods
 

@@ -60,7 +60,7 @@ func _rotate(delta):
 		_input_rotation_vector = input_rotation_vector
 		input_rotate_vector_handled()
 		_input_rotation_vector = _input_rotation_vector.linear_interpolate(
-			_input_rotation_vector, delta * smooth
+			Vector2(0, 0), delta * smooth
 		)
 		_mapod_rotate(_input_rotation_vector)
 

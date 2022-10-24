@@ -50,6 +50,7 @@ func _ready():
 	set_debug_flag(defer_debug_flag)
 	camera.fov = max_fov
 	if choices:
+		choices.visible = false
 		if choices_extended == true:
 			choices.force_extended()
 		choices.connect("scene_metaverse_requested", self, "_on_scene_metaverse_requested")
