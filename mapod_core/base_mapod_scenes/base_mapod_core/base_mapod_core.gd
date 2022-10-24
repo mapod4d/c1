@@ -50,7 +50,7 @@ func _on_new_scene_loaded(scene):
 		current_scene.connect("scene_requested", self, "_on_scene_requested")
 		current_scene.connect("push_scene_requested", self, "_on_push_scene_requested")
 		current_scene.connect("pop_scene_requested", self, "_on_pop_scene_requested")
-		
+
 	if current_scene is MapodPlanetScene:
 		if current_scene.activate_visitor():
 			# search for building
@@ -71,7 +71,6 @@ func _on_new_scene_loaded(scene):
 						player.connect("object_second_interaction_requested", self, "_on_object_second_interaction_requested")
 					current_scene.add_child(player)
 					player.set_owner(current_scene)
-					
 				else:
 					print("base_mapod_core.gd Visitor not found !")
 			else:
