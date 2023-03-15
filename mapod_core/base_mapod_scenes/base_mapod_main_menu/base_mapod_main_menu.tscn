@@ -12,11 +12,12 @@
 [ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_main_menu/menu_selector.gd" type="Script" id=10]
 [ext_resource path="res://mapod_assets/images/ico_trasparente.png" type="Texture" id=11]
 [ext_resource path="res://mapod_assets/icons/keyboard/s_white_medium.png" type="Texture" id=12]
-[ext_resource path="res://mapod_assets/icons/xbox_360/xb360_right_stick_medium.png" type="Texture" id=13]
+[ext_resource path="res://mapod_assets/icons/xbox_360/xb360_dpad_up_medium.png" type="Texture" id=13]
 [ext_resource path="res://mapod_assets/icons/keyboard/arrow_up_white_medium.png" type="Texture" id=14]
 [ext_resource path="res://mapod_assets/icons/keyboard/arrow_down_white_medium.png" type="Texture" id=15]
 [ext_resource path="res://mapod_assets/icons/xbox_360/xb360_a_medium.png" type="Texture" id=16]
 [ext_resource path="res://mapod_assets/icons/keyboard/invio_white_medium.png" type="Texture" id=17]
+[ext_resource path="res://mapod_assets/icons/xbox_360/xb360_dpad_down_medium.png" type="Texture" id=18]
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0, 0, 1 )
@@ -88,10 +89,6 @@ size = 24
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
-
-[sub_resource type="StreamTexture" id=12]
-flags = 4
-load_path = "res://.import/xb360_right_stick_medium.png-19f9d059f79113c9cfe88e86b0e786de.stex"
 
 [sub_resource type="DynamicFont" id=14]
 size = 24
@@ -392,7 +389,7 @@ __meta__ = {
 margin_left = 361.0
 margin_right = 411.0
 margin_bottom = 50.0
-texture = SubResource( 12 )
+texture = ExtResource( 18 )
 
 [node name="Space1" type="Panel" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 margin_left = 411.0

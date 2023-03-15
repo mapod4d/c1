@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/xb360_dpad_up.png-aed3900a31d8b7ca1e79dd210593b4e7.stex"
+path="res://.import/xb360_dpad_up_medium.png-120811393e795ce15018e15d9a744f37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapod_assets/icons/xbox_360/xb360_dpad_up.png"
-dest_files=[ "res://.import/xb360_dpad_up.png-aed3900a31d8b7ca1e79dd210593b4e7.stex" ]
+source_file="res://mapod_assets/icons/xbox_360/xb360_dpad_up_medium.png"
+dest_files=[ "res://.import/xb360_dpad_up_medium.png-120811393e795ce15018e15d9a744f37.stex" ]
 
 [params]
 

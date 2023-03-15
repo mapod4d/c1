@@ -53,8 +53,8 @@ var _current_scene_name = null
 # onready var mapod_core: BaseMapodCore = get_node_or_null("/root/MapodCore")
 onready var mapod_core = get_node_or_null("/root/MapodCore")
 
-# ----- built-in virtual _ready method
 
+# ----- built-in virtual _ready method
 func _ready():
 	print("mapod_global._ready")
 	set_process(false)
@@ -78,7 +78,6 @@ func _ready():
 
 
 # ----- remaining built-in virtual methods
-
 func _process(_delta):
 	if loader == null:
 		# nulla da caricare
@@ -107,7 +106,6 @@ func _process(_delta):
 
 
 # ----- private methods
-
 func _start_not_mapod_core():
 	# carica in ogni caso la scena mapodCore come root
 	# e appende la scena corrente a loadScene
@@ -199,8 +197,10 @@ func _internal_scene_requested(scene_name, request_type: int):
 func _on_scene_requested(scene_name):
 	_internal_scene_requested(scene_name, MAPODSCENEREQUESTTYPE.STANDARDRQS)
 
+
 func _on_metaverse_requested():
 	_internal_scene_requested(metaverse, MAPODSCENEREQUESTTYPE.STANDARDRQS)
+
 
 func _on_push_scene_requested(scene_name):
 	_internal_scene_requested(scene_name, MAPODSCENEREQUESTTYPE.PUSHRQS)
