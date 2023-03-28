@@ -199,6 +199,16 @@ material/1 = SubResource( 4 )
 material/2 = SubResource( 5 )
 material/3 = SubResource( 6 )
 
+[node name="Torch" type="SpotLight" parent="RotationHelper/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.034821 )
+visible = false
+layers = 2
+light_energy = 6.0
+light_bake_mode = 0
+light_cull_mask = 4293918721
+spot_range = 2.7827
+spot_angle = 28.5918
+
 [node name="Hud" type="CanvasLayer" parent="."]
 
 [node name="Hudnl" parent="Hud" instance=ExtResource( 5 )]
