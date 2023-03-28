@@ -52,6 +52,10 @@ func handle_input(event):
 		input_open_handled()
 		_mapod_freeze()
 		_change_state("open")
+	
+	if _function_f1_active():
+		input_function_f1_handled()
+		_mapod_function_f1_request()
 
 
 # nessuna richiesta di movimento

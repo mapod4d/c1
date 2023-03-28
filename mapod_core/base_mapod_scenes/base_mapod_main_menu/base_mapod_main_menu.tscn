@@ -161,7 +161,7 @@ __meta__ = {
 
 [node name="Header" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox"]
 margin_right = 946.0
-margin_bottom = 176.0
+margin_bottom = 209.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 alignment = 2
@@ -193,9 +193,18 @@ custom_fonts/font = SubResource( 2 )
 text = "Set subtitle property !!"
 align = 1
 
+[node name="License" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Header"]
+margin_top = 180.0
+margin_right = 946.0
+margin_bottom = 209.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Rilasciato sotto licenza EUPL 1.2"
+align = 1
+
 [node name="Menu" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox"]
 margin_left = 283.0
-margin_top = 180.0
+margin_top = 213.0
 margin_right = 663.0
 margin_bottom = 771.0
 mouse_filter = 2
@@ -208,9 +217,9 @@ __meta__ = {
 
 [node name="Help" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
 modulate = Color( 1, 1, 1, 0.509804 )
-margin_top = 180.0
+margin_top = 163.0
 margin_right = 380.0
-margin_bottom = 222.0
+margin_bottom = 205.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 3 )
 text = "HELP E INFORMAZIONI"
@@ -221,9 +230,9 @@ __meta__ = {
 active = false
 
 [node name="SinglePlayer" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
-margin_top = 226.0
+margin_top = 209.0
 margin_right = 380.0
-margin_bottom = 268.0
+margin_bottom = 251.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 3 )
 text = "SINGOLO VISITATORE"
@@ -234,9 +243,9 @@ __meta__ = {
 
 [node name="MultiPlayer" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
 modulate = Color( 1, 1, 1, 0.509804 )
-margin_top = 272.0
+margin_top = 255.0
 margin_right = 380.0
-margin_bottom = 314.0
+margin_bottom = 297.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 3 )
 text = "MULTI VISITATORE"
@@ -248,9 +257,9 @@ active = false
 
 [node name="Options" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
 modulate = Color( 1, 1, 1, 0.509804 )
-margin_top = 318.0
+margin_top = 301.0
 margin_right = 380.0
-margin_bottom = 360.0
+margin_bottom = 343.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 3 )
 text = "OPZIONI"
@@ -261,9 +270,9 @@ __meta__ = {
 active = false
 
 [node name="Exit" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/MarginContainer/LeftBox/Menu"]
-margin_top = 364.0
+margin_top = 347.0
 margin_right = 380.0
-margin_bottom = 411.0
+margin_bottom = 394.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 4 )
 text = "ESCI"

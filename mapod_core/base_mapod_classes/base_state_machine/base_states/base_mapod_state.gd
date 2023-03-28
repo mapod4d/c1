@@ -29,6 +29,8 @@ signal choices_close_requested()
 signal object_first_interaction_requested(object_uid)
 # object second interaction object
 signal object_second_interaction_requested(object_uid)
+# function f1
+signal function_f1_requested()
 # zoom
 signal zoom_requested()
 # unzoom
@@ -50,6 +52,7 @@ var input_open = false
 var input_choices = false
 var input_first_interaction = false
 var input_second_interaction = false
+var function_f1 = false
 var disable_esc = false
 #var joy_pad_motion_vector = Vector2(0, 0)
 #var joy_pad_motion_tollerance = 0.2
@@ -106,6 +109,11 @@ func handle_input(event):
 		input_first_interaction = true
 	elif event.is_action_pressed("mapod_second_interaction"):
 		input_second_interaction = true
+	
+	# visitor function activate
+	function_f1 = false
+	if event.is_action_pressed("mapod_f1"):
+		function_f1 = true
 	
 	# choices
 	input_choices = false
@@ -196,7 +204,20 @@ func input_first_interaction_handled():
 func input_second_interaction_handled():
 	input_second_interaction = false
 
+
+func input_function_f1_handled():
+	function_f1 = false
+
+
 # ----- private methods
+
+# check f1 request
+func _function_f1_active():
+	var retVal = false
+	_freeze_static_states_data()
+	if function_f1 == true:
+		retVal = true
+	return retVal
 
 # check first_interaction request
 func _first_interaction_active():
@@ -388,6 +409,9 @@ func _mapod_object_first_interaction_request(object_uid: int):
 func _mapod_object_second_interaction_request(object_uid: int):
 	emit_signal("object_second_interaction_requested", object_uid)
 
+# function f1 request
+func _mapod_function_f1_request():
+	emit_signal("function_f1_requested")
 
 # zoom or unzoom request
 func _mapod_zoom():
