@@ -41,6 +41,7 @@ onready var hud = $Hud/Hudnl
 onready var choices = $ChoicesLayer/Choices
 onready var ray_cast = $RotationHelper/Camera/RayCast
 onready var mapod_state_machine = $MapodStateMachine
+onready var torch = $RotationHelper/Camera/Torch
 
 
 # ----- built-in virtual _ready method
@@ -95,6 +96,8 @@ func _ready():
 				cRet = child.connect("zoom_requested", self, "_on_zoom_requested")
 				assert(cRet == 0)
 				cRet = child.connect("unzoom_requested", self, "_on_unzoom_requested")
+				assert(cRet == 0)
+				cRet = child.connect("function_f1_requested", self, "_on_f1_requested")
 				assert(cRet == 0)
 		mapod_state_machine.set_active(true)
 	choices.connect("set_panorama_requested", self, "_on_set_panorama_requested")
@@ -248,3 +251,7 @@ func _on_zoom_requested():
 func _on_unzoom_requested():
 	if camera.fov < max_fov:
 		camera.fov = camera.fov + 1
+
+
+func _on_f1_requested():
+	torch.visible = not torch.visible
