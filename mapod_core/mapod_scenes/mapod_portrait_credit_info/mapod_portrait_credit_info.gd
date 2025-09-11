@@ -39,7 +39,7 @@ func _ready():
 
 # ----- remaining built-in virtual methods
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		_assign_portrait_texture_image()
 		_assign_data_texture_image()
@@ -75,19 +75,19 @@ func set_data_texture_image(data):
 
 func _assign_portrait_texture_image():
 	if _portrait_texture_image != null:
-		var panel = get_node_or_null("PortraitCreditInfo")
-		if panel != null:
-			var material = panel.get_surface_material(2)
+		var local_panel = get_node_or_null("PortraitCreditInfo")
+		if local_panel != null:
+			var material = local_panel.get_surface_material(2)
 			var new_material = material.duplicate(true)
 			new_material.set_shader_param("base_texture", _portrait_texture_image)
-			panel.set_surface_material(2, new_material)
+			local_panel.set_surface_material(2, new_material)
 
 
 func _assign_data_texture_image():
 	if _data_texture_image != null:
-		var panel = get_node_or_null("PortraitCreditInfo")
-		if panel != null:
-			var material = panel.get_surface_material(1)
+		var local_panel = get_node_or_null("PortraitCreditInfo")
+		if local_panel != null:
+			var material = local_panel.get_surface_material(1)
 			var new_material = material.duplicate(true)
 			new_material.set_shader_param("base_texture", _data_texture_image)
-			panel.set_surface_material(1, new_material)
+			local_panel.set_surface_material(1, new_material)

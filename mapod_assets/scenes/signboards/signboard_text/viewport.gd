@@ -33,7 +33,7 @@ func _ready():
 
 # ----- remaining built-in virtual methods
 
-func _process(delta):
+func _process(_delta):
 	size = $Label.rect_size
 
 # ----- public methods

@@ -43,7 +43,8 @@ var _unique_id = 0
 func _ready():
 	add_to_group("mapod_objects")
 	_collision_update()
-	connect("visibility_changed", self, "_on_visibility_chage")
+	var result = connect("visibility_changed", self, "_on_visibility_chage")
+	assert(result != null)
 
 
 # ----- remaining built-in virtual methods

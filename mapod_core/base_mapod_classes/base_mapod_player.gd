@@ -26,6 +26,7 @@ export(bool) var debug_flag = false setget set_debug_flag
 #debug
 var defer_debug_flag = false
 var speed: Vector3  = Vector3(0, 0, 0)
+var starting_position = [Vector3(0, 0, 0), Vector2(0, 0)]
 
 # ----- private variables
 
@@ -51,10 +52,18 @@ func speed_to_string():
 
 
 func mapod_set_3d_start_position(mapod_position: Array):
-	var tr_position = mapod_position[0]
-	var tr_angle = mapod_position[1]
-	translation = tr_position
-	rotation_degrees = tr_angle
+#	var tr_angle = mapod_position[1]
+#	var player_transform = transform.orthonormalized()
+#	player_transform.origin = tr_position
+#	transform = player_transform
+#	translation = tr_position
+#	rotation_degrees = tr_angle
+	starting_position[0] = mapod_position[0]
+	starting_position[1] = mapod_position[1]
+	var position_transform = transform.orthonormalized()
+	# set position
+	position_transform.origin = mapod_position[0]
+	transform = position_transform
 
 
 func request_panorama(stream_texture):

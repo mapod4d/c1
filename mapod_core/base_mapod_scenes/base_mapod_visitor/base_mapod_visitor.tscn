@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_visitor/states/open_state.gd" type="Script" id=1]
 [ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_visitor/states/move_state.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_visitor/states/first_interaction_state.gd" type="Script" id=26]
 [ext_resource path="res://mapod_core/mapod_support/mapod_choices/mapod_choices.tscn" type="PackedScene" id=27]
 [ext_resource path="res://mapod_core/base_mapod_scenes/base_mapod_visitor/states/second_interaction_state.gd" type="Script" id=28]
+[ext_resource path="res://mapod_assets/fonts/cmu_concrete/cmunorm.ttf" type="DynamicFontData" id=29]
 
 [sub_resource type="BoxShape" id=1]
 margin = 0.001
@@ -149,6 +150,13 @@ depth_flip_tangent = false
 depth_flip_binormal = false
 depth_texture = ExtResource( 20 )
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 60
+font_data = ExtResource( 29 )
+
 [node name="BaseMapodVisitor" type="KinematicBody"]
 script = ExtResource( 24 )
 
@@ -217,3 +225,35 @@ spot_angle = 28.5918
 
 [node name="Choices" parent="ChoicesLayer" instance=ExtResource( 27 )]
 visible = false
+
+[node name="InitScreen" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="InitScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InitScreen/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -894, -162 )
+custom_constants/separation = 200
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InitScreen/Panel/VBoxContainer"]
+margin_top = 401.0
+margin_right = 1920.0
+margin_bottom = 479.0
+custom_fonts/font = SubResource( 8 )
+text = "Metaverse MAPOD4D Initializing ..."
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="InitScreen/Panel/VBoxContainer"]
+margin_top = 679.0
+margin_right = 1920.0
+margin_bottom = 679.0
+custom_constants/margin_right = 200
+custom_constants/margin_left = 200

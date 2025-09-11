@@ -28,7 +28,7 @@ func exit():
 	_mapod_print_debug_msg("OpenState exit", 1)
 
 
-func update(delta):
+func update(_delta):
 	_freeze_static_states_data()
 	var scene_name = local_static_states_data["request_scene"]
 	if local_static_states_data["scene_request_type"] == MapodGlobal.MAPODSCENEREQUESTTYPE.PUSHRQS:

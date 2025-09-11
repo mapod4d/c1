@@ -18,23 +18,24 @@ extends BaseMapodPlayer
 # ----- exported variables
 # speed parameters
 export(bool) var choices_extended = false
-export(float) var speed_max = 150
-export(float) var speed_multiplier = 3
-export(float) var inertia = 5
+export(float) var speed_max = 150.0
+export(float) var speed_multiplier = 3.0
+export(float) var inertia = 5.0
 # mouse parameters
 #export(float) var mouse_sensitivity = 40
 export(float) var mouse_sensitivity = 0.4
 export(float) var mouse_smooth = 0.0001
-export(float) var game_pad_sensitivity = 2
-export(float) var zoom_smooth = 1
-export(float) var min_fov = 40
-export(float) var max_fov = 70
+export(float) var game_pad_sensitivity = 2.0
+export(float) var zoom_smooth = 1.0
+export(float) var min_fov = 40.0
+export(float) var max_fov = 70.0
 
 # ----- public variables
 
 # ----- private variables
 
 # ----- onready variables
+onready var init_screen = $InitScreen
 onready var camera = $RotationHelper/Camera
 onready var rotation_helper = $RotationHelper
 onready var hud = $Hud/Hudnl
@@ -68,6 +69,8 @@ func _ready():
 		mapod_state_machine.static_states_data["min_fov"] = min_fov
 		mapod_state_machine.static_states_data["max_fov"] = max_fov
 		mapod_state_machine.static_states_data["zoom"] = 1 / (camera.fov / max_fov)
+		mapod_state_machine.static_states_data["stating_position"] = starting_position[0]
+		mapod_state_machine.static_states_data["stating_rotation"] = starting_position[1]
 		# handle states
 		for state_name in mapod_state_machine.states_map:
 			var child = mapod_state_machine.states_map[state_name]
@@ -101,6 +104,12 @@ func _ready():
 				assert(cRet == 0)
 		mapod_state_machine.set_active(true)
 	choices.connect("set_panorama_requested", self, "_on_set_panorama_requested")
+	# starting rotation
+	var starting_rotation = Vector2(0, 0)
+	starting_rotation.y = starting_position[1].x
+	starting_rotation.x = starting_position[1].y
+	_on_rotate_requested(starting_rotation)
+	call_deferred("disable_init_screen")
 
 
 # ----- remaining built-in virtual methods
@@ -170,17 +179,23 @@ func set_debug_flag(value):
 	if hud:
 		hud.set_debug(value)
 
+func disable_init_screen():
+	yield(get_tree().create_timer(2.5), "timeout")
+	init_screen.visible = false
+
 # ----- private methods
 
 # start object functions
 func _set_object_interaction(first_flag: bool, second_flag: bool):
 	hud.set_show_analysable(first_flag, second_flag)
 
+
 func _disable_object_interaction():
 	if hud:
 		hud.set_info_data("")
 		_set_object_interaction(false, false)
 # end object functions
+
 
 func _not_analysable():
 	mapod_state_machine.static_states_data["can_be_opened"] = false

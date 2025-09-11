@@ -32,7 +32,7 @@ onready var table = $Buildings/Table
 # ----- built-in virtual _ready method
 
 func _ready():
-	var utils = MapodUtils.new()
+#	var utils = MapodUtils.new()
 	var z_pos = 0
 	var n_valid = 0
 	for element in elements:
