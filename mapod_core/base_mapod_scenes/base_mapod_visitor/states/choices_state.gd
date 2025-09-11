@@ -30,7 +30,7 @@ func exit():
 	_mapod_print_debug_msg("ChoicesState exit", 1)
 
 
-func update(delta):
+func update(_delta):
 	pass
 
 

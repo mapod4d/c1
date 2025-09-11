@@ -67,13 +67,28 @@ func _ready():
 		print("mapod_global._ready mapod_core==null")
 		call_deferred("_start_not_mapod_core")
 	else:
-		mapod_core.connect("scene_requested", self, "_on_scene_requested")
-		mapod_core.connect("metaverse_requested", self, "_on_metaverse_requested")
-		mapod_core.connect("push_scene_requested", self, "_on_push_scene_requested")
-		mapod_core.connect("pop_scene_requested", self, "_on_pop_scene_requested")
-		connect("progress_bar_update_requested", mapod_core, "_on_progress_bar_update_requested")
-		connect("progress_bar_show_requested", mapod_core, "_on_progress_bar_show_requested")
-		connect("new_scene_loaded", mapod_core, "_on_new_scene_loaded")
+		var result = mapod_core.connect(
+				"scene_requested", self, "_on_scene_requested")
+		assert(result != null)
+		result = mapod_core.connect(
+				"metaverse_requested", self, "_on_metaverse_requested")
+		assert(result != null)
+		result = mapod_core.connect(
+				"push_scene_requested", self, "_on_push_scene_requested")
+		assert(result != null)
+		result = mapod_core.connect(
+					"pop_scene_requested", self, "_on_pop_scene_requested")
+		assert(result != null)
+		result = connect(
+				"progress_bar_update_requested",
+				mapod_core, "_on_progress_bar_update_requested")
+		assert(result != null)
+		result = connect(
+					"progress_bar_show_requested",
+					mapod_core, "_on_progress_bar_show_requested")
+		assert(result != null)
+		result = connect("new_scene_loaded", mapod_core, "_on_new_scene_loaded")
+		assert(result != null)
 	active = true
 
 
@@ -121,9 +136,10 @@ func _start_not_mapod_core():
 	mapod_core.owner = root
 	# clean loadScene
 	var loaded_scene = mapod_core.get_node("LoadedScene")
-	var child_zero = loaded_scene.get_child(0)
-	if child_zero != null:
-		child_zero.queue_free()
+	if loaded_scene.get_child_count() > 0:
+		var child_zero = loaded_scene.get_child(0)
+		if child_zero != null:
+			child_zero.queue_free()
 	# add played scene
 	loaded_scene.add_child(played_scene)
 	played_scene.owner = loaded_scene
@@ -132,7 +148,9 @@ func _start_not_mapod_core():
 	#	current_scene.connect("scene_requested", self, "_on_scene_requested")
 	#	current_scene.connect("push_scene_requested", self, "_on_push_scene_requested")
 	#	current_scene.connect("pop_scene_requested", self, "_on_pop_scene_requested")
-	connect("new_scene_loaded", mapod_core, "_on_new_scene_loaded")
+	var result = connect(
+			"new_scene_loaded", mapod_core, "_on_new_scene_loaded")
+	assert(result != null)
 	emit_signal("new_scene_loaded", current_scene)
 
 

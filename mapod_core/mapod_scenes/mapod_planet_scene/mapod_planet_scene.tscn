@@ -27,3 +27,5 @@ directional_shadow_normal_bias = 0.13
 directional_shadow_bias_split_scale = 0.18
 directional_shadow_depth_range = 1
 directional_shadow_max_distance = 500.0
+
+[node name="PlayerPosition" type="Spatial" parent="."]

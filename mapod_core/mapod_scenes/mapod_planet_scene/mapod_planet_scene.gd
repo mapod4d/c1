@@ -20,7 +20,7 @@ extends MapodScene
 # ----- exported variables
 export(bool) var visitor_activated = true
 export(Vector3) var visitor_position = Vector3(0, 1.75, 0)
-export(Vector3) var visitor_angle = Vector3(0, 270, 0)
+export(Vector2) var visitor_angle = Vector2(0, 270)
 
 # ----- public variables
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://mapod_core/mapod_objects/mapod_object_info/mapod_object_info.gd" type="Script" id=1]
+[ext_resource path="res://mapod_core/mapod_objects/mapod_object_info/mapod_object_info.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 1, 1 )
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.1
+
+[node name="MapodObjectInfo" type="StaticBody"]
+script = ExtResource( 1 )
+
+[node name="MapodObjectInfoGeometry" type="CSGSphere" parent="."]
+radius = 0.1
+radial_segments = 4
+rings = 3
+material = SubResource( 3 )
+
+[node name="Info" type="MeshInstance" parent="MapodObjectInfoGeometry"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.6, 0.5, 0 )
+visible = false
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
